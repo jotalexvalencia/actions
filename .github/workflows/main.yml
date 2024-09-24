@@ -1,5 +1,6 @@
 name: Test
 
+
 on: [push]
 
 jobs:
@@ -11,3 +12,18 @@ jobs:
               run: |
                echo "Hola Mundo" >> hola.txt
                cat hola.txt
+
+
+on: [push]
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ls
+        run: |
+          echo "Hola Mundo" >> hola.txt
+          cat hola.txt
+
+
