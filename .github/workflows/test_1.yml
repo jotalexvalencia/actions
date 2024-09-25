@@ -33,5 +33,5 @@ jobs:
       uses: actions/setup-node@v4.0.4
 
     - name: node version
-      uses: node --version
+      run: node --version
   
