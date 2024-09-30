@@ -1,47 +1,15 @@
-name: Hola Mundo
+name: Ejemplo de Composite Action
 
-on: [push]   
+on: [push]
 
 jobs:
-  hola:
+  say-hello:
     runs-on: ubuntu-latest
-    
-    steps:
-    - name: Hola Mundo
-      run: echo "Hola Mundo"
 
-    - name: touch file
-      run: touch hola.txt
-
-    - name: Set text
-      run: echo "Hola Mundo" >> hola.txt
-      
-    - name: Read file
-      run: cat hola.txt
-      
-  other:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4.2.0
-  
-
-    - name: LS
-      run: ls -al
-
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v4.0.4
-      with:
-        node-version: latest
-
-    - name: node version
-      run: node --version
-
-    - name: PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.3'
-
-    - name: PHP version
-      run: php --version
-      
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: example
+        ports:
+          - 3306:3306
