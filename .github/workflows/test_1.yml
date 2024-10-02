@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      MY_VAR: Mi variable de entorno
+      MY_VAR: Mi llave SSH
     
     steps:
       - name: lS 
